@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You've Been Phished by Group 50 - SecurED Conference 2027</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -12,12 +13,9 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 40px auto;
             background-color: #112233;
             border-radius: 12px;
@@ -28,7 +26,7 @@
         .header {
             background-color: #0d9dd9;
             color: white;
-            padding: 30px;
+            padding: 35px;
             text-align: center;
         }
         .header h1 {
@@ -38,15 +36,21 @@
         }
         .content {
             padding: 40px;
-            line-height: 1.7;
+            line-height: 1.8;
             font-size: 18px;
         }
         .warning {
             background-color: #2a1f1f;
             border-left: 6px solid #e74c3c;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 4px;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 6px;
+        }
+        .diagram-container {
+            background-color: #0f1b2b;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
         }
         .button {
             display: inline-block;
@@ -56,7 +60,7 @@
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
-            margin-top: 20px;
+            margin: 10px;
         }
         footer {
             text-align: center;
@@ -71,27 +75,47 @@
     <div class="container">
         <div class="header">
             <h1>YOU HAVE BEEN PHISHED</h1>
+            <p style="margin:10px 0 0 0; font-size:20px;">SecurED Conference 2027 • Security Awareness Exercise</p>
         </div>
+       
         <div class="content">
-            <p><strong>This was a simulated phishing attack</strong> conducted as part of Georgia Tech's PUBP 6725.</p>
+            <p><strong>This was a simulated phishing attack</strong> conducted as part of Assignment 1 for PUBP 6725.</p>
            
             <div class="warning">
                 <h2 style="color:#e74c3c; margin-top:0;">⚠️ If this had been a real attack:</h2>
-                <p>This page would have been a realistic fake account creation or login page. Clicking "Respond to This Invitation" in the email would have taken you to a site designed to steal your credentials by linking to a Google or LinkedIn SSO page.</p>
+                <p>This page would have been a realistic fake account creation or login page designed to steal your credentials.</p>
             </div>
 
-            <p>The email you received was crafted to look legitimate — using proper branding, a professional tone, and a realistic call-to-action button. This is exactly how modern spear-phishing attacks target conference organizers, speakers, and higher education staff.</p>
-           
-            <p><strong>Be careful out there.</strong> Always verify unexpected invitations and never click links in emails asking you to "respond" or "confirm" on external sites.</p>
+            <h2 style="color:#0d9dd9;">How the Attack Worked</h2>
+            <div class="diagram-container">
+                <div class="mermaid">
+                    flowchart TD
+                        A[Attacker creates realistic email<br>using conference branding + logo] --> B[Email sent to target speaker]
+                        B --> C[Target sees professional invitation<br>with real-looking button]
+                        C --> D[Target clicks 'Respond to This Invitation']
+                        D --> E[Redirected to fake credential harvesting page]
+                        E --> F[Credentials stolen to lead to further escelation]
+                       
+                        style A fill:#1a2a3a,stroke:#0d9dd9,color:#fff
+                        style F fill:#2a1f1f,stroke:#e74c3c,color:#fff
+                </div>
+            </div>
 
-            <p style="text-align:center; margin:40px 0;">
+            <p><strong>Key Takeaway:</strong> Always be suspicious of unexpected "Respond to Invitation", "Confirm Attendance", or "Claim Your Spot" buttons in emails — even when they look professional or link to real domains!.</p>
+
+            <p style="text-align:center; margin:40px 0 20px 0;">
                 <a href="https://www.securedconference.com" class="button">Return to SecurED Conference Website</a>
             </p>
         </div>
+       
         <footer>
             Group 50 • Assignment 1<br>
             This was a simulation. No credentials were collected.
         </footer>
     </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
 </body>
 </html>
